@@ -14,10 +14,7 @@ all_states = data.state.to_list()
 guessed_states = []
 
 def states_to_learn():
-    not_guessed_states = []
-    for state in all_states:
-        if state not in guessed_states:
-            not_guessed_states.append(state)
+    not_guessed_states = [state for state in all_states if state in guessed_states]
     df = pandas.DataFrame({"Not guessed" : not_guessed_states})
     df.to_csv('Not_guessed.csv')
 
